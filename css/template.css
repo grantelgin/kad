@@ -49,7 +49,7 @@ nav li{
 /* ------ BOILERPLATE TEMPLATE ------ */
 
 body{
-	font-family: 'Open Sans';
+	font-family: 'Oxygen', sans-serif;
 }
 
 .wrapper{
@@ -103,7 +103,7 @@ hr{
 
 #Grid{
 	width: 100%;
-	text-align: justify;
+	text-align: left;
 	font-size: 0.1px;
 }
 
@@ -122,10 +122,11 @@ hr{
 	margin-bottom: 20px;
 	background: #ccc;
 	color: #fff;
-	
+	margin-right: 20px;
 	font-size: 30px;
 	text-align: center;
 	line-height: 200px;
+	overflow:hidden;
 }
 
 #Grid .gap{
