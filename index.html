@@ -13,11 +13,25 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.mixitup.js"></script>
     <script  type="text/javascript">
+    
     $(function(){
-     
-    $('#Grid').mixitup();
-     
-});
+		$('#Grid').mixitup();
+	});
+	
+	showDetail = function(imgName) {
+		var title = imgName;
+		var detailSrc = 'img/' + imgName + '.png';
+		$('#detailImg').attr('src', detailSrc);
+		$('#detailTitle').html('"' + imgName + '"');
+		$('#detailInfo').html($('#detailInfo_' + imgName).html()); 
+		$('#detailView').show('slow');
+		$('#portfolio').hide();
+	}
+	
+	hideDetail = function() {
+		$('#detailView').hide();
+		$('#portfolio').show();
+	}
     </script>
 
   </head>
@@ -27,11 +41,23 @@
       <div class="kadTop">
       <img src="img/KADesign_Logo.png" alt="KADesign_Logo" style="float:left;padding-top:23px;" width="247" height="21">
       <ul class="nav nav-pills" style="float:right;padding-top:20px;">
-				<li><a class="kadGrey" style="border-right:1px solid #bfbfbf;" >PORTFOLIO</a></li>
+				<li><a class="kadGrey" style="border-right:1px solid #bfbfbf;" onclick="hideDetail();">PORTFOLIO</a></li>
 				<li><a class="kadGrey" >ABOUT</a></li>
 	  </ul>
       <div class="clearfix"></div>
       </div>
+      
+      <div id="detailView" style="display:none; padding-top:40px;">
+	      <div style="float: left; width:450px;margin-right:40px;"><img id="detailImg" src="" alt="Crisp" /></div>
+	      <div id="detailDesc" style="float: left; text-align:left; width:330px;">
+		      <div id="detailTitle" class="kadTeal"></div>
+		      <div id="detailInfo" class="kadGrey"></div>
+	      </div>
+	      <div class="clearfix"></div>
+	      <div style="text-align:center; margin:auto;padding-top:20px;"><a onclick="hideDetail();">BACK TO PORTFOLIO</a></div>
+      </div>
+      
+      <div id="portfolio">
       		<ul class="nav nav-pills">
 				<li><a class="filter kadGrey" data-filter="all">All</a></li>
 				<li><a class="filter kadGrey" data-filter="category_1">Icons</a></li>
@@ -41,7 +67,7 @@
 			</ul>
 			
 			<ul id="Grid">
-				<li class="mix category_1" data-cat="1"><img src="img/Crisp.png" alt="Crisp"></li>
+				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp');"><img src="img/Crisp.png" alt="Crisp"></a></li>
 				<li class="mix category_1" data-cat="1">1</li>
 				<li class="mix category_4" data-cat="4">1</li>
 				<li class="mix category_1" data-cat="1">1</li>
@@ -53,7 +79,11 @@
 				<li class="mix category_1" data-cat="1">1</li>
 				<!-- <li class="gap"></li> <!-- "gap" elements fill in the gaps in justified grid -->
 			</ul>
+      </div>
   </div>
-  	
+  	<div style="display:none;">
+	  	<span id="detailInfo_Crisp">an original screen print<br/><br/>Created with space and color in mind, this print is one of my favorites.</span>
+	  	
+  	</div>
       </body>
 </html>
