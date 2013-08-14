@@ -39,6 +39,7 @@ h1,h2,h3,h4,h5,h6{
 
 a{
 	text-decoration: none;
+	cursor:pointer;
 }
 
 nav li{
@@ -122,11 +123,13 @@ hr{
 	margin-bottom: 20px;
 	background: #fff;
 	color: #fff;
-	margin-right: 20px;
+	margin-right: 16px;
 	font-size: 30px;
 	text-align: center;
 	line-height: 200px;
 	overflow:hidden;
+	cursor:pointer;
+	border:1px solid #a6a6a6;
 }
 
 #Grid .gap{
