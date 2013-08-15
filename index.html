@@ -21,11 +21,13 @@
 	showDetail = function(imgName, title) {
 		var detailSrc = 'img/' + imgName + '.png';
 		$('#detailImg').attr('src', detailSrc);
-		$('#detailTitle').html('"' + title + '"');
+		$('#detailTitle').html(title);
 		$('#detailInfo').html($('#detailInfo_' + imgName).html()); 
 		$('#detailView').show('slow');
 		$('#portfolio').hide();
 		$('#detailConnect').hide();
+		var stateObj = { foo: "bar" };
+history.pushState(stateObj, "", "index.html?page=detail");
 	}
 	
 	hideDetail = function() {
@@ -42,6 +44,8 @@
 		$('#detailView').show('slow');
 		$('#detailConnect').show();
 		$('#portfolio').hide();
+		var stateObj = { foo: "bar" };
+history.pushState(stateObj, "", "index.html?page=about");
 	}
     </script>
 
@@ -63,7 +67,7 @@
 	      <div id="detailDesc" style="float: left; text-align:left; width:330px;">
 		      <div id="detailTitle" class="kadTeal"></div>
 		      <div id="detailInfo" class="kadGrey"></div>
-		      <div id="detailConnect" class="kadTeal" style="display:none;padding-top:270px;">CONNECT<br/><span class="kadGrey" style="border-right:1px solid #a6a6a6;padding-right:15px;"><a href="mailto:kallen5240@gmail.com" class="kadGrey">kallen5240@gmail.com</a></span><span><a href="http://www.linkedin.com/pub/katie-allen/6b/49a/46b/"><img src="img/linkedin.png" alt="linkedin" width="30" height="30" style="margin:0px 10px 0px 10px;"></a><a href="http://pinterest.com/kallenanne/"><img src="img/pintrest.png" alt="pintrest" width="30" height="30" ></a></span></div>
+		      <div id="detailConnect" class="kadTeal" style="display:none;padding-top:170px;">CONNECT<br/><span class="kadGrey" style="border-right:1px solid #a6a6a6;padding-right:15px;"><a href="mailto:kallen5240@gmail.com" class="kadGrey">kallen5240@gmail.com</a></span><span><a href="http://www.linkedin.com/pub/katie-allen/6b/49a/46b/"><img src="img/linkedin.png" alt="linkedin" width="30" height="30" style="margin:0px 10px 0px 10px;"></a><a href="http://pinterest.com/kallenanne/"><img src="img/pintrest.png" alt="pintrest" width="30" height="30" ></a></span></div>
 	      </div>
 	      <div class="clearfix"></div>
 	      <div style="text-align:center; margin:auto;padding-top:20px;"><a onclick="hideDetail();">BACK TO PORTFOLIO</a></div>
@@ -78,17 +82,17 @@
 			</ul>
 			
 			<ul id="Grid">
-				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', 'Crisp');"><img src="img/Crisp.png" alt="Crisp"></a></li>
+				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', '&quot;Crisp&quot;');"><img src="img/Crisp.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FPLogo_2', 'Another summer, another T-shirt design');"><img src="img/FPLogo_2.png" style="margin-top:-8px;" alt="FP2"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl');"><img src="img/Owl_Final.png" alt="Owl_Final"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl');"><img src="img/Owl_Final.png" alt="Owl_Final" style="padding-top:80px;" width="160px"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_3', 'Things that are valuable');"><img src="img/Icons_3.png" style="margin-top:-7px;" alt="Icons_3"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl');"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl');"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final" style="padding-top:80px; padding-right:120px;" width="160px"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_1', 'Pro Icons for Nestwork');"><img src="img/Icons_1.png" style="margin-top:-7px;" alt="Icons_1"></a></li>
-				<li class="mix category_2" data-cat="2"><a onclick="showDetail('AquaSurf', 'Aqua Surf');"><img src="img/AquaSurf.png" alt="Crisp"></a></li>
+				<li class="mix category_2" data-cat="2"><a onclick="showDetail('AquaSurf', '&quot;Aqua Surf&quot;');"><img src="img/AquaSurf.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FP_summerlogo1', 'Summer T-shirt design for an awesome non-profit');"><img src="img/FP_summerlogo1.png" style="margin-top:-8px;"  alt="FP2"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('BlueIcons', 'What you can do icons');"><img src="img/BlueIcons.png" style="margin-top:-7px;" alt="Blue icons"></a></li>
-				<li class="mix category_2" data-cat="2"><a onclick="showDetail('JungleTangle', 'Jungle Tangle');"><img src="img/JungleTangle.png" alt="Crisp"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('ProjectOwl_Final', 'Project owl');"><img src="img/ProjectOwl_Final.png" alt="FP2"></a></li>
+				<li class="mix category_2" data-cat="2"><a onclick="showDetail('JungleTangle', '&quot;Jungle Tangle&quot;');"><img src="img/JungleTangle.png" alt="Crisp"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('ProjectOwl_Final', 'Project owl');"><img src="img/ProjectOwl_Final.png" alt="FP2" style="padding-top:80px;padding-left:40px;" width="160px"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_2', 'Pro Icons for Nestwork');"><img src="img/Icons_2.png" style="margin-top:-7px;" alt="FP2"></a></li>
 				<!-- <li class="gap"></li> <!-- "gap" elements fill in the gaps in justified grid -->
 			</ul>
@@ -96,7 +100,8 @@
   </div>
   	<div style="display:none;">
 	  	<span id="detailInfo_Crisp">an original screen print<br/><br/>Created with space and color in mind, this print is one of my favorites.</span>
-	  	<span id="detailInfo_FPLogo_2">an original screen print<br/><br/>Created with space and color in mind, this print is one of my favorites.</span>
+	  	<span id="detailInfo_FP_summerlogo1"><br/><br/>I worked with The Sunflower County Freedom project to create a T-shirt design for their summer program.</span>
+	  	<span id="detailInfo_FPLogo_2"><br/><br/>I worked again with The Sunflower County Freedom project to create a T-shirt design for their 2013 summer program. This design was an interpretation of the tagline, the roots representing the past and the sun rays representing the future.</span>
 	  	<span id="detailInfo_About">I'm a designer living in Boston, with roots in Texas. 
 
 I spent my college years at Providence College 
