@@ -626,6 +626,18 @@ a.text-success:focus {
 	color: #046d93;
 }
 
+.kadTitle {
+	font-size: large;
+}
+
+.kadSubTitle {
+	font-size: x-small;
+}
+
+.kadOrange {
+	color: #f47637;
+}
+
 .kadCoral {
 	color: #f1634f;
 }

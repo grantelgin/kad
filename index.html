@@ -18,7 +18,14 @@
 		$('#Grid').mixitup();
 	});
 	
-	showDetail = function(imgName, title) {
+	$(document).ready(function () {
+		$("li a").click(function () {
+			$("li a").attr('class', 'filter kadGrey');
+			$(this).attr('class', 'filter kadOrange');
+		});
+	});
+	
+	showDetail = function(imgName, title, copyright) {
 		var detailSrc = 'img/' + imgName + '.png';
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html(title);
@@ -26,6 +33,11 @@
 		$('#detailView').show('slow');
 		$('#portfolio').hide();
 		$('#detailConnect').hide();
+		if (copyright == true) {
+			$('#copyright').show();
+		}
+		else
+			$('#copyright').hide();
 		var stateObj = { foo: "bar" };
 history.pushState(stateObj, "", "index.html?page=detail");
 	}
@@ -39,6 +51,7 @@ history.pushState(stateObj, "", "index.html?page=detail");
 	showAbout = function() {
 		var detailSrc = 'img/BioPic.jpg';
 		$('#detailImg').attr('src', detailSrc);
+		//$('#detailImg').attr('style', 'transform:rotate(90deg);');
 		$('#detailTitle').html("&nbsp;<br/><br/>");
 		$('#detailInfo').html($('#detailInfo_About').html());
 		$('#detailView').show('slow');
@@ -63,9 +76,9 @@ history.pushState(stateObj, "", "index.html?page=about");
       </div>
       
       <div id="detailView" style="display:none; padding-top:40px;">
-	      <div style="float: left; width:450px;margin-right:40px;"><img id="detailImg" src="" alt="Crisp" /></div>
+	      <div style="float: left; width:450px;margin-right:40px;"><img id="detailImg" src="" alt="Crisp" /><span id="copyright" class="kadLtGrey kadSubTitle" style="display:none;float:left; margin-left:10px;"><br/>&copy; nestwork</span></div>
 	      <div id="detailDesc" style="float: left; text-align:left; width:330px;">
-		      <div id="detailTitle" class="kadTeal"></div>
+		      <div id="detailTitle" class="kadTeal kadTitle"></div>
 		      <div id="detailInfo" class="kadGrey"></div>
 		      <div id="detailConnect" class="kadTeal" style="display:none;padding-top:170px;">CONNECT<br/><span class="kadGrey" style="border-right:1px solid #a6a6a6;padding-right:15px;"><a href="mailto:kallen5240@gmail.com" class="kadGrey">kallen5240@gmail.com</a></span><span><a href="http://www.linkedin.com/pub/katie-allen/6b/49a/46b/"><img src="img/linkedin.png" alt="linkedin" width="30" height="30" style="margin:0px 10px 0px 10px;"></a><a href="http://pinterest.com/kallenanne/"><img src="img/pintrest.png" alt="pintrest" width="30" height="30" ></a></span></div>
 	      </div>
@@ -82,77 +95,38 @@ history.pushState(stateObj, "", "index.html?page=about");
 			</ul>
 			
 			<ul id="Grid">
-				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', '&quot;Crisp&quot;');"><img src="img/Crisp.png" alt="Crisp"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FPLogo_2', 'Another summer, another T-shirt design');"><img src="img/FPLogo_2.png" style="margin-top:-8px;" alt="FP2"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl');"><img src="img/Owl_Final.png" alt="Owl_Final" style="padding-top:80px;" width="160px"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_3', 'Things that are valuable');"><img src="img/Icons_3.png" style="margin-top:-7px;" alt="Icons_3"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl');"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final" style="padding-top:80px; padding-right:120px;" width="160px"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_1', 'An icon for every pro');"><img src="img/Icons_1.png" style="margin-top:-7px;" alt="Icons_1"></a></li>
-				<li class="mix category_2" data-cat="2"><a onclick="showDetail('AquaSurf', '&quot;Aqua Surf&quot;');"><img src="img/AquaSurf.png" alt="Crisp"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FP_summerlogo1', 'Summer T-shirt design for an awesome non-profit');"><img src="img/FP_summerlogo1.png" style="margin-top:-8px;"  alt="FP2"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('BlueIcons', 'What you can do icons');"><img src="img/BlueIcons.png" style="margin-top:-7px;" alt="Blue icons"></a></li>
-				<li class="mix category_2" data-cat="2"><a onclick="showDetail('JungleTangle', '&quot;Jungle Tangle&quot;');"><img src="img/JungleTangle.png" alt="Crisp"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('ProjectOwl_Final', 'Project owl');"><img src="img/ProjectOwl_Final.png" alt="FP2" style="padding-top:80px;padding-left:40px;" width="160px"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_2', 'Pro Icons for Nestwork');"><img src="img/Icons_2.png" style="margin-top:-7px;" alt="FP2"></a></li>
+				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', 'Crisp', false);"><img src="img/Crisp.png" alt="Crisp"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FPLogo_2', 'Another summer, another T-shirt design', false);"><img src="img/FPLogo_2.png" style="margin-top:-8px;" alt="FP2"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl', true);"><img src="img/Owl_Final.png" alt="Owl_Final" style="padding-top:90px;" width="160px"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_3', 'Things that are valuable', true);"><img src="img/Icons_3.png" style="margin-top:-7px;" alt="Icons_3"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl', true);"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final" style="padding-top:90px; padding-right:120px;" width="160px"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_1', 'An icon for every pro', true);"><img src="img/Icons_1.png" style="margin-top:-7px;" alt="Icons_1"></a></li>
+				<li class="mix category_2" data-cat="2"><a onclick="showDetail('AquaSurf', 'Aqua Surf', false);"><img src="img/AquaSurf.png" alt="Crisp"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FP_summerlogo1', 'Summer T-shirt design for an awesome non-profit', false);"><img src="img/FP_summerlogo1.png" style="margin-top:-8px;"  alt="FP2"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('BlueIcons', 'What you can do icons', true);"><img src="img/BlueIcons.png" style="margin-top:-7px;" alt="Blue icons"></a></li>
+				<li class="mix category_2" data-cat="2"><a onclick="showDetail('JungleTangle', 'Jungle Tangle', false);"><img src="img/JungleTangle.png" alt="Crisp"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('ProjectOwl_Final', 'Project owl', true);"><img src="img/ProjectOwl_Final.png" alt="FP2" style="padding-top:90px;padding-left:40px;" width="160px"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_2', 'Pro Icons for Nestwork', true);"><img src="img/Icons_2.png" style="margin-top:-7px;" alt="FP2"></a></li>
 				<!-- <li class="gap"></li> <!-- "gap" elements fill in the gaps in justified grid -->
 			</ul>
       </div>
   </div>
   	<div style="display:none;">
-	  	<span id="detailInfo_Crisp"><i>an original screen print</i><br/><br/>This print is my favorite, a perfect contrast of warm and cool colors layered on top of each other.</span>
-	  	<span id="detailInfo_FP_summerlogo1"><br/><br/>I worked with The Sunflower County Freedom project to create a T-shirt design for their summer program.</span>
-	  	<span id="detailInfo_FPLogo_2"><br/><br/>I worked again with The Sunflower County Freedom project to create a logo. This design was an interpretation of the tagline, the roots representing the past and the sun rays representing the future.</span>
-	  	<span id="detailInfo_Owl_Final">Wise, well-groomed, and ready to help you with your home projects; that's the nestwork owl. As the logo for nestwork.com, the owl represents any homeowner who wants to find a pro for their next project.</span>
-	  	<span id="detailInfo_Icons_3"></span>
-	  	<span id="detailInfo_InsuranceOwl_Final"></span>
-	  	<span id="detailInfo_Icons_1"></span>
-	  	<span id="detailInfo_AquaSurf"></span>
-	  	<span id="detailInfo_BlueIcons"></span>
-	  	<span id="detailInfo_JungleTangle"></span>
-	  	<span id="detailInfo_ProjectOwl_Final"></span>
-	  	<span id="detailInfo_Icons_2"></span>
+	  	<span id="detailInfo_Crisp">An original screen print<br/><br/>This print is my favorite, a perfect contrast of warm and cool colors layered on top of each other.</span>
+	  	<span id="detailInfo_FP_summerlogo1"><br/>I worked with The Sunflower County Freedom project to create a T-shirt design for their summer program. The idea for this logo grew from their summer slogan.</span>
+	  	<span id="detailInfo_FPLogo_2"><br/>I worked again with The Sunflower County Freedom project to create a logo. This design was an interpretation of the tagline, the roots representing the past and the sun rays representing the future.</span>
+	  	<span id="detailInfo_Owl_Final"><br/>Wise, well-groomed, and ready to help you with your home projects; that's the nestwork owl. As the logo for nestwork.com, the owl represents any homeowner who wants to find a pro for their next project.</span>
+	  	<span id="detailInfo_Icons_3"><br/></span>
+	  	<span id="detailInfo_InsuranceOwl_Final"><br/>Add a bow tie and glasses and this owl is ready to help homeowners get insurance! This is the insurance owl for nestwork.com.</span>
+	  	<span id="detailInfo_Icons_1"><br/>Electricians, plumbers, painters, oh my! These icons represent the various types of pros you can find on nestwork.com.</span>
+	  	<span id="detailInfo_AquaSurf">An original screen print<br/><br/></span>
+	  	<span id="detailInfo_BlueIcons"><br/>Complete, refresh, or start a project, just to name a few. These icons tell you what you can do.</span>
+	  	<span id="detailInfo_JungleTangle">An original screen print<br/><br/>As the title suggests, this one feels like a jungle, dense with bright tropical colors.</span>
+	  	<span id="detailInfo_ProjectOwl_Final"><br/>A tool belt and googles makes this owl ready to tackle any home improvement project. This owl was created for nestwork.com. He's a pro you'd hire to get the job done.</span>
+	  	<span id="detailInfo_Icons_2"><br/><br/></span>
 	  	
-	  	<span id="detailInfo_About">I'm a designer living in Boston, with roots in Texas. I spent my college years at Providence College where I learned all forms of printmaking and fell in love with screen printing.</span>
+	  	<span id="detailInfo_About"><br/>I'm a designer living in Boston, with roots in Texas. I spent my college years at Providence College where I learned all forms of printmaking and fell in love with screen printing.</span>
   	</div>
-  	
-  	
-  	
-  	<div>"Project owl" Project owl: A tool belt and googles makes this owl ready to tackle any home improvement project. This owl was created for nestwork.com. He's a pro you'd hire to get the job done. </div>
-  	<div>"Insurance owl" Insurance owl: Add a bow tie and glasses and this owl is ready to help homeowners get insurance! This is the insurance owl for nestwork.com. </div>
-  	<div>icon for every pro: Electricians, plumbers, painters, oh my! These icons represent the various types of pros you can find on nestwork.com. </div>
-  	<div>more pro icons: </div>
-  	<div>what you can do icons: Complete, refresh, or start a project, just to name a few. These icons tell you what you can do.  </div>
-  	<div>Things that are valuable: </div>
-  	<div>jungle tangle: As the title suggests, this one feels like a jungle; dense with bright tropical colors. </div>
-  	<div>Aq Surf: an orig sp. </div>
-  	<div>Crisp: orig screen print This print is my favorite, a perfect contrast of warm and cool colors layered on top of each other.  </div>
-  	<div>Suumer t awesome: I worked with The Sunflower County Freedom project to create a T-shirt design for their summer program. The idea for this logo grew from their summer slogan. </div>
-  	<div>another summer 2: I worked again with The Sunflower County Freedom project to create a t-shirt logo. This design is an interpretation of the tagline, the roots representing the past and the sun rays representing the future.</div>
-  	<div></div>
 
-  
-  	
-  	
       </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
