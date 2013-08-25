@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/jquery.history.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.mixitup.js"></script>
     <script  type="text/javascript">
@@ -17,12 +18,25 @@
     $(function(){
 		$('#Grid').mixitup();
 	});
-	
+	var windowWidth = $(window).width();
 	$(document).ready(function () {
 		$("li a").click(function () {
 			$("li a").attr('class', 'filter kadGrey');
 			$(this).attr('class', 'filter kadOrange');
 		});
+		if (windowWidth <= 767) {
+			$('#topNav').attr('style', 'float:left;padding-top:20px;');
+			$('#Grid').attr('style', 'text-align:center;');
+			$('#topLogo').attr('style', 'padding-left:10px;float:left;padding-top:23px;');
+			//$('#detailImg').attr('width', windowWidth-100);
+			$('#detailImg').parent().attr('style', 'float: left; width:310px;margin:auto;padding-bottom:20px;');
+			
+			}
+		else {
+			$('#topNav').attr('style', 'float:right;padding-top:20px;');
+			$('#Grid').attr('style', '');
+			}
+		
 	});
 	
 	showDetail = function(imgName, title, copyright) {
@@ -37,9 +51,7 @@
 			$('#copyright').show();
 		}
 		else
-			$('#copyright').hide();
-		//var stateObj = { foo: "bar" };
-		//history.pushState(stateObj, "", "index.html?page=detail");
+			$('#copyright').hide();		
 	}
 	
 	hideDetail = function() {
@@ -51,39 +63,42 @@
 	showAbout = function() {
 		var detailSrc = 'img/About.png';
 		$('#detailImg').attr('src', detailSrc);
-		//$('#detailImg').attr('style', 'transform:rotate(90deg);');
 		$('#detailTitle').html("&nbsp;<br/><br/>");
 		$('#detailInfo').html($('#detailInfo_About').html());
 		$('#detailView').show('slow');
 		$('#detailConnect').show();
 		$('#portfolio').hide();
-		//var stateObj = { foo: "bar" };
-		//history.pushState(stateObj, "", "index.html?page=about");
+		$('#copyright').hide();	
+		//if (windowWidth < 800){
+		//	$('#detailInfo').attr('style', 'margin-top:-50px;');
+		//	$('#detailConnect').attr('style', 'padding-top:20px;');
+			//$('#detailImg').parent().attr('style', 'float: left; width:310px;margin:auto;padding-bottom:20px;');
+		//}
 	}
-    </script>
+ </script>
 
   </head>
   <body>
   
   <div class="container text-center">
       <div class="kadTop">
-      <img src="img/KADesign_Logo.png" alt="KADesign_Logo" style="float:left;padding-top:23px;" width="247" height="21">
-      <ul class="nav nav-pills" style="float:right;padding-top:20px;">
-				<li><a class="kadGrey" style="border-right:1px solid #bfbfbf;" onclick="hideDetail();">PORTFOLIO</a></li>
+      <img id="topLogo" src="img/KADesign_Logo_42px.jpg" alt="KADesign_Logo" style="float:left;padding-top:23px;" width="262" height="21">
+      <ul id="topNav" class="nav nav-pills" style="float:right;padding-top:20px;">
+				<li><a class="kadGrey" onclick="hideDetail();">PORTFOLIO</a></li><span class="kadGrey" style="float:left;padding-top:6px;margin-right:3px;margin-left:-1px;">|</span>
 				<li><a class="kadGrey" style="margin-left:-2px;" onclick="showAbout();">ABOUT</a></li>
 	  </ul>
       <div class="clearfix"></div>
       </div>
       
       <div id="detailView" style="display:none; padding-top:40px;">
-	      <div style="float: left; width:450px;margin-right:40px;"><img id="detailImg" src="" alt="Crisp" /><span id="copyright" class="kadLtGrey kadSubTitle" style="display:none;float:left; margin-left:10px;"><br/>&copy; nestwork</span></div>
+	      <div style="float: left; width:450px;margin-right:40px;padding-bottom:20px;"><img id="detailImg" src="" alt="Crisp" /><span id="copyright" class="kadLtGrey kadSubTitle" style="display:none;float:left; margin-left:10px;"><br/>&copy; nestwork</span></div>
 	      <div id="detailDesc" style="float: left; text-align:left; width:330px;">
 		      <div id="detailTitle" class="kadTeal kadTitle"></div>
 		      <div id="detailInfo" class="kadGrey"></div>
-		      <div id="detailConnect" class="kadTeal" style="display:none;padding-top:170px;">CONNECT<br/><span class="kadGrey" style="border-right:1px solid #a6a6a6;padding-right:15px;"><a href="mailto:kallen5240@gmail.com" class="kadGrey">kallen5240@gmail.com</a></span><span><a href="http://www.linkedin.com/pub/katie-allen/6b/49a/46b/"><img src="img/linkedin.png" alt="linkedin" width="30" height="30" style="margin:0px 10px 0px 10px;"></a><a href="http://pinterest.com/kallenanne/"><img src="img/pintrest.png" alt="pintrest" width="30" height="30" ></a></span></div>
+		      <div id="detailConnect" class="kadTeal" style="display:none;padding-top:170px;">CONNECT<br/><span class="kadGrey" style="padding-right:15px;"><a href="mailto:kallen5240@gmail.com" class="kadGrey">kallen5240@gmail.com</a></span></div>
 	      </div>
 	      <div class="clearfix"></div>
-	      <div style="text-align:center; margin:auto;padding-top:20px;padding-bottom:50px;"><a onclick="hideDetail();">BACK TO PORTFOLIO</a></div>
+	      <div style="text-align:center; margin:auto;padding-top:20px;padding-bottom:50px;"><a class="kadTeal" onclick="hideDetail();">BACK TO PORTFOLIO</a></div>
       </div>
       
       <div id="portfolio">
@@ -99,13 +114,13 @@
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FPLogo_2', 'Another summer, another T-shirt design', false);"><img src="img/FPLogo_2.png" style="margin-top:-8px;" alt="FP2"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl', true);"><img src="img/Owl_Final.png" alt="Owl_Final" style="padding-top:90px;" width="160px"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_3', 'Things that are valuable', true);"><img src="img/Icons_3.png" style="margin-top:-7px;margin-left:-44px;max-width:159%;" alt="Icons_3"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl', true);"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final" style="padding-top:90px; padding-right:120px;" width="160px"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl', true);"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final" style="padding-top:90px;" width="160px"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_1', 'An icon for every pro', true);"><img src="img/Icons_1.png" style="margin-top:-7px;max-width:137%;" alt="Icons_1"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('AquaSurf', 'Aqua Surf', false);"><img src="img/AquaSurf.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FP_summerlogo1', 'Summer T-shirt design for an awesome non-profit', false);"><img src="img/FP_summerlogo1.png" style="margin-top:-8px;"  alt="FP2"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('BlueIcons', 'What you can do icons', true);"><img src="img/BlueIcons.png" style="margin-top:-7px;" alt="Blue icons"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('BlueIcons', 'What you can do icons', true);"><img src="img/BlueIcons.png" style="margin-top:-7px; max-width:97%;" alt="Blue icons"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('JungleTangle', 'Jungle Tangle', false);"><img src="img/JungleTangle.png" alt="Crisp"></a></li>
-				<li class="mix category_3" data-cat="3"><a onclick="showDetail('ProjectOwl_Final', 'Project owl', true);"><img src="img/ProjectOwl_Final.png" alt="FP2" style="padding-top:90px;padding-left:40px;" width="160px"></a></li>
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('ProjectOwl_Final', 'Project owl', true);"><img src="img/ProjectOwl_Final.png" alt="FP2" style="padding-top:90px;" width="160px"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_2', 'More Pro Icons', true);"><img src="img/Icons_2.png" style="margin-top:-7px;margin-left:-5px;max-width:137%;" alt="FP2"></a></li>
 				<!-- <li class="gap"></li> <!-- "gap" elements fill in the gaps in justified grid -->
 			</ul>
@@ -125,7 +140,7 @@
 	  	<span id="detailInfo_ProjectOwl_Final"><br/>A tool belt and googles makes this owl ready to tackle any home improvement project. This owl was created for nestwork.com. He's a pro you'd hire to get the job done.</span>
 	  	<span id="detailInfo_Icons_2"><br/><br/>Roofers, waterproofers and carpet installers, oh my! These icons represent the various types of pros you can find on nestwork.com.</span>
 	  	
-	  	<span id="detailInfo_About"><br/>I'm a designer living in Boston, with roots in Texas. I spent my college years at Providence College where I learned all forms of printmaking and fell in love with screen printing.</span>
+	  	<span id="detailInfo_About"><br/>I'm a graphic designer living in Boston, with roots in Texas. I attended Providence College and studied printmaking. My work is focused on branding, web, and UI design. I love bright colors, icons and any project that strives to create a user friendly experience. </span>
   	</div>
 
       </body>

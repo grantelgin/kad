@@ -647,6 +647,15 @@ a.text-success:focus {
 	margin-right: 20px;
 }
 
+.kadLogo1 {
+	font-size: 23px;
+	font-family: 'Gill Sans Light'; 
+}
+.kadLogo2 {
+	font-size: 11px;
+	font-family: 'Gill Sans Light';
+}
+
 h1,
 h2,
 h3,
