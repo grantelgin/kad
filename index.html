@@ -38,8 +38,8 @@
 		}
 		else
 			$('#copyright').hide();
-		var stateObj = { foo: "bar" };
-history.pushState(stateObj, "", "index.html?page=detail");
+		//var stateObj = { foo: "bar" };
+		//history.pushState(stateObj, "", "index.html?page=detail");
 	}
 	
 	hideDetail = function() {
@@ -49,7 +49,7 @@ history.pushState(stateObj, "", "index.html?page=detail");
 	}
 	
 	showAbout = function() {
-		var detailSrc = 'img/BioPic.jpg';
+		var detailSrc = 'img/About.png';
 		$('#detailImg').attr('src', detailSrc);
 		//$('#detailImg').attr('style', 'transform:rotate(90deg);');
 		$('#detailTitle').html("&nbsp;<br/><br/>");
@@ -57,8 +57,8 @@ history.pushState(stateObj, "", "index.html?page=detail");
 		$('#detailView').show('slow');
 		$('#detailConnect').show();
 		$('#portfolio').hide();
-		var stateObj = { foo: "bar" };
-history.pushState(stateObj, "", "index.html?page=about");
+		//var stateObj = { foo: "bar" };
+		//history.pushState(stateObj, "", "index.html?page=about");
 	}
     </script>
 
@@ -98,15 +98,15 @@ history.pushState(stateObj, "", "index.html?page=about");
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', 'Crisp', false);"><img src="img/Crisp.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FPLogo_2', 'Another summer, another T-shirt design', false);"><img src="img/FPLogo_2.png" style="margin-top:-8px;" alt="FP2"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl', true);"><img src="img/Owl_Final.png" alt="Owl_Final" style="padding-top:90px;" width="160px"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_3', 'Things that are valuable', true);"><img src="img/Icons_3.png" style="margin-top:-7px;" alt="Icons_3"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_3', 'Things that are valuable', true);"><img src="img/Icons_3.png" style="margin-top:-7px;margin-left:-44px;max-width:159%;" alt="Icons_3"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl', true);"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final" style="padding-top:90px; padding-right:120px;" width="160px"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_1', 'An icon for every pro', true);"><img src="img/Icons_1.png" style="margin-top:-7px;" alt="Icons_1"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_1', 'An icon for every pro', true);"><img src="img/Icons_1.png" style="margin-top:-7px;max-width:137%;" alt="Icons_1"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('AquaSurf', 'Aqua Surf', false);"><img src="img/AquaSurf.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FP_summerlogo1', 'Summer T-shirt design for an awesome non-profit', false);"><img src="img/FP_summerlogo1.png" style="margin-top:-8px;"  alt="FP2"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('BlueIcons', 'What you can do icons', true);"><img src="img/BlueIcons.png" style="margin-top:-7px;" alt="Blue icons"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('JungleTangle', 'Jungle Tangle', false);"><img src="img/JungleTangle.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('ProjectOwl_Final', 'Project owl', true);"><img src="img/ProjectOwl_Final.png" alt="FP2" style="padding-top:90px;padding-left:40px;" width="160px"></a></li>
-				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_2', 'Pro Icons for Nestwork', true);"><img src="img/Icons_2.png" style="margin-top:-7px;" alt="FP2"></a></li>
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_2', 'More Pro Icons', true);"><img src="img/Icons_2.png" style="margin-top:-7px;margin-left:-5px;max-width:137%;" alt="FP2"></a></li>
 				<!-- <li class="gap"></li> <!-- "gap" elements fill in the gaps in justified grid -->
 			</ul>
       </div>
@@ -116,14 +116,14 @@ history.pushState(stateObj, "", "index.html?page=about");
 	  	<span id="detailInfo_FP_summerlogo1"><br/>I worked with The Sunflower County Freedom project to create a T-shirt design for their summer program. The idea for this logo grew from their summer slogan.</span>
 	  	<span id="detailInfo_FPLogo_2"><br/>I worked again with The Sunflower County Freedom project to create a logo. This design was an interpretation of the tagline, the roots representing the past and the sun rays representing the future.</span>
 	  	<span id="detailInfo_Owl_Final"><br/>Wise, well-groomed, and ready to help you with your home projects; that's the nestwork owl. As the logo for nestwork.com, the owl represents any homeowner who wants to find a pro for their next project.</span>
-	  	<span id="detailInfo_Icons_3"><br/></span>
+	  	<span id="detailInfo_Icons_3"><br/>You may have more valuables than you realize, a diamond ring, camera, golf clubs or maybe even a gramophone. This set of icons represents household items you can insure.</span>
 	  	<span id="detailInfo_InsuranceOwl_Final"><br/>Add a bow tie and glasses and this owl is ready to help homeowners get insurance! This is the insurance owl for nestwork.com.</span>
 	  	<span id="detailInfo_Icons_1"><br/>Electricians, plumbers, painters, oh my! These icons represent the various types of pros you can find on nestwork.com.</span>
-	  	<span id="detailInfo_AquaSurf">An original screen print<br/><br/></span>
+	  	<span id="detailInfo_AquaSurf">An original screen print<br/><br/>A tide of teal frames this surge of colorful waves. This image looks like a tropical storm.</span>
 	  	<span id="detailInfo_BlueIcons"><br/>Complete, refresh, or start a project, just to name a few. These icons tell you what you can do.</span>
 	  	<span id="detailInfo_JungleTangle">An original screen print<br/><br/>As the title suggests, this one feels like a jungle, dense with bright tropical colors.</span>
 	  	<span id="detailInfo_ProjectOwl_Final"><br/>A tool belt and googles makes this owl ready to tackle any home improvement project. This owl was created for nestwork.com. He's a pro you'd hire to get the job done.</span>
-	  	<span id="detailInfo_Icons_2"><br/><br/></span>
+	  	<span id="detailInfo_Icons_2"><br/><br/>Roofers, waterproofers and carpet installers, oh my! These icons represent the various types of pros you can find on nestwork.com.</span>
 	  	
 	  	<span id="detailInfo_About"><br/>I'm a designer living in Boston, with roots in Texas. I spent my college years at Providence College where I learned all forms of printmaking and fell in love with screen printing.</span>
   	</div>
