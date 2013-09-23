@@ -10,7 +10,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/jquery.history.js"></script>
+    <!-- <script src="js/jquery.history.js"></script> -->
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.mixitup.js"></script>
     <script  type="text/javascript">
@@ -40,6 +40,7 @@
 	});
 	
 	showDetail = function(imgName, title, copyright) {
+		//history.pushState(null, title, '/' + imgName);
 		var detailSrc = 'img/' + imgName + '.png';
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html(title);
@@ -58,9 +59,11 @@
 		$('#detailView').hide();
 		$('#detailConnect').hide();
 		$('#portfolio').show();
+		//history.pushState(null, 'Portfolio', '/portfolio');
 	}
 	
 	showAbout = function() {
+	//history.pushState(null, 'About', '/about');
 		var detailSrc = 'img/About.png';
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html("&nbsp;<br/><br/>");
@@ -76,7 +79,11 @@
 		else 
 			$('#detailConnect').attr('style', 'padding-top:100px;');
 	}
- </script>
+	
+	
+		//window.addEventListener('popstate', function (event) {updateContent(event.state);});
+
+		 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -120,6 +127,7 @@
 			</ul>
 			
 			<ul id="Grid">
+				<li class="mix category_1" data-cat="1"><a onclick="showDetail('r_icons', 'Resume icons', false);"><img src="img/r_icons.png" style="margin-top:-7px;" alt="r_icons"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', 'Crisp', false);"><img src="img/Crisp.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FPLogo_2', 'Another summer, another T-shirt design', false);"><img src="img/FPLogo_2.png" style="margin-top:-8px;" alt="FP2"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl', true);"><img src="img/Owl_Final.png" alt="Owl_Final" style="padding-top:90px;" width="160px"></a></li>
@@ -137,6 +145,7 @@
       </div>
   </div>
   	<div style="display:none;">
+	  	<span id="detailInfo_r_icons"><br/>I created these icons to add a visual element to my resume, they represent experience, education, and skills.</span>
 	  	<span id="detailInfo_Crisp">An original screen print<br/><br/>This print is my favorite, a perfect contrast of warm and cool colors layered on top of each other.</span>
 	  	<span id="detailInfo_FP_summerlogo1"><br/>I worked with The Sunflower County Freedom project to create a T-shirt design for their summer program. The idea for this logo grew from their summer slogan.</span>
 	  	<span id="detailInfo_FPLogo_2"><br/>I worked again with The Sunflower County Freedom project to create a logo. This design was an interpretation of the tagline, the roots representing the past and the sun rays representing the future.</span>
