@@ -40,7 +40,7 @@
 	});
 	
 	showDetail = function(imgName, title, copyright) {
-		//history.pushState(null, title, '/' + imgName);
+		//history.pushState(imgName, title, '#' + imgName);
 		var detailSrc = 'img/' + imgName + '.png';
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html(title);
@@ -59,11 +59,11 @@
 		$('#detailView').hide();
 		$('#detailConnect').hide();
 		$('#portfolio').show();
-		//history.pushState(null, 'Portfolio', '/portfolio');
+		//history.pushState(null, 'Portfolio', '#portfolio');
 	}
 	
 	showAbout = function() {
-	//history.pushState(null, 'About', '/about');
+	//history.pushState(null, 'About', '#about');
 		var detailSrc = 'img/About.png';
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html("&nbsp;<br/><br/>");
@@ -80,8 +80,22 @@
 			$('#detailConnect').attr('style', 'padding-top:100px;');
 	}
 	
+	updateContent = function(state) {
+		if (state.length < 1) {
+			hideDetail();return;
+			}
+		if (state == 'about')
+			showAbout();
+		else if (state == 'portfolio')
+			hideDetail();
+		else {
+		var title = getTitle(state);
+			showDetail(state, title, false);
+		}
+			
+	}	
 	
-		//window.addEventListener('popstate', function (event) {updateContent(event.state);});
+		//window.addEventListener('popstate', function (event) {alert(event.state);updateContent(event.state);});
 
 		 </script>
 <script>
@@ -127,6 +141,7 @@
 			</ul>
 			
 			<ul id="Grid">
+				<li class="mix category_3" data-cat="3"><a onclick="showDetail('RobotNews', 'Robot News', false);"><img src="img/RobotNews.png"  alt="Robot News"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('r_icons', 'Resume icons', false);"><img src="img/r_icons.png" style="margin-top:-7px;" alt="r_icons"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', 'Crisp', false);"><img src="img/Crisp.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('FPLogo_2', 'Another summer, another T-shirt design', false);"><img src="img/FPLogo_2.png" style="margin-top:-8px;" alt="FP2"></a></li>
@@ -145,6 +160,7 @@
       </div>
   </div>
   	<div style="display:none;">
+  		<span id="detailInfo_RobotNews"><br/>Logo design for an online robotics forum.</span>
 	  	<span id="detailInfo_r_icons"><br/>I created these icons to add a visual element to my resume, they represent experience, education, and skills.</span>
 	  	<span id="detailInfo_Crisp">An original screen print<br/><br/>This print is my favorite, a perfect contrast of warm and cool colors layered on top of each other.</span>
 	  	<span id="detailInfo_FP_summerlogo1"><br/>I worked with The Sunflower County Freedom project to create a T-shirt design for their summer program. The idea for this logo grew from their summer slogan.</span>
