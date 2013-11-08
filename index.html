@@ -10,7 +10,6 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="http://code.jquery.com/jquery.js"></script>
-    <!-- <script src="js/jquery.history.js"></script> -->
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.mixitup.js"></script>
     <script  type="text/javascript">
@@ -20,6 +19,9 @@
 	});
 	var windowWidth = $(window).width();
 	$(document).ready(function () {
+		if (history.state == null)
+			history.replaceState({view:"portfolio", data:""}, 'Portfolio', '#portfolio');
+			
 		$("li a").click(function () {
 			$("li a").attr('class', 'filter kadGrey');
 			$(this).attr('class', 'filter kadOrange');
@@ -40,7 +42,9 @@
 	});
 	
 	showDetail = function(imgName, title, copyright) {
-		//history.pushState(imgName, title, '#' + imgName);
+		if (history.state.data.imgName != imgName)
+			history.pushState({view:"detail", data:{ "imgName":imgName, "title":title, "copyright":copyright}}, title, '#' + imgName);
+			
 		var detailSrc = 'img/' + imgName + '.png';
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html(title);
@@ -59,11 +63,16 @@
 		$('#detailView').hide();
 		$('#detailConnect').hide();
 		$('#portfolio').show();
-		//history.pushState(null, 'Portfolio', '#portfolio');
+
+		if (history.state.view != "portfolio")
+			history.pushState({view:"portfolio", data:""}, 'Portfolio', '#portfolio');
 	}
 	
 	showAbout = function() {
-	//history.pushState(null, 'About', '#about');
+
+		if (history.state.view != "about")
+			history.pushState({view:"about", data:""}, 'About', '#about');
+			
 		var detailSrc = 'img/About.png';
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html("&nbsp;<br/><br/>");
@@ -80,23 +89,25 @@
 			$('#detailConnect').attr('style', 'padding-top:100px;');
 	}
 	
-	updateContent = function(state) {
-		if (state.length < 1) {
-			hideDetail();return;
-			}
-		if (state == 'about')
-			showAbout();
-		else if (state == 'portfolio')
-			hideDetail();
-		else {
-		var title = getTitle(state);
-			showDetail(state, title, false);
+	loadHistory = function(state) {
+
+		if (state.view == "detail") {
+			showDetail(state.data.imgName, state.data.title, state.data.copyright);
 		}
-			
+		else if (state.view == "portfolio") {
+			hideDetail();
+		}
+		else if (state.view == "about") {
+			showAbout();
+		}	
 	}	
 	
-		//window.addEventListener('popstate', function (event) {alert(event.state);updateContent(event.state);});
+		window.addEventListener('popstate', function (event) {
 
+		if (history.state == null)
+			history.replaceState({view:"portfolio", data:""}, 'Portfolio', '#portfolio');
+		loadHistory(event.state);
+		});
 		 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
