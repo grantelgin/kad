@@ -64,7 +64,7 @@
 		$('#portfolio').hide();
 		$('#detailConnect').hide();
 		if (copyright == true) {
-			if (imgName == 'BACBanner' || imgName == 'BACPoster2')
+			if (imgName.substring(0, 3) == 'BAC')
 				$('#copyright').html('<br/>&copy; Boston Architectural College').show();
 			else
 				$('#copyright').html('<br/>&copy; nestwork').show();
@@ -174,6 +174,7 @@
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('r_icons', 'Resume icons', false);"><img src="img/r_icons.png" style="margin-top:-7px;" alt="r_icons"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', 'Crisp', false);"><img src="img/Crisp.png" alt="Crisp"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('Owl_Final', 'The nestwork owl', true);"><img src="img/Owl_Final.png" alt="Owl_Final" style="padding-top:90px;" width="160px"></a></li>
+				<li class="mix category_4" data-cat="4"><a onclick="showDetail('BACPoster3', 'BAC Poster', true);"><img src="img/BACPoster3.png"  alt="BAC Poster"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('RobotNews', 'Robot News', false);"><img src="img/RobotNews.png"  alt="Robot News"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('Icons_3', 'Things that are valuable', true);"><img src="img/Icons_3.png" style="margin-top:-7px;margin-left:-44px;max-width:159%;" alt="Icons_3"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('InsuranceOwl_Final', 'Insurance owl', true);"><img src="img/InsuranceOwl_Final.png" alt="Insurance Owl_Final" style="padding-top:90px;" width="160px"></a></li>
@@ -189,6 +190,7 @@
       </div>
   </div>
   	<div style="display:none;">
+  		<span id="detailInfo_BACPoster3"><br/>Poster to advertise design opportunities for students at the Boston Architectural College.</span>
   		<span id="detailInfo_BACPoster2"><br/>Poster to advertise a design forum for students at the Boston Architectural College.</span>
   		<span id="detailInfo_BACBanner"><br/>Large scale banner to showcase new projects for students at the Boston Architectural College.</span>
   		<span id="detailInfo_WeddingInv"><br/>Charming, vintage-inspired wedding invitation created for a summer wedding in the country.</span>
