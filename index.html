@@ -49,11 +49,25 @@
 		$('#detailImg').attr('src', detailSrc);
 		$('#detailTitle').html(title);
 		$('#detailInfo').html($('#detailInfo_' + imgName).html()); 
+		if (imgName == 'BACBanner'){
+			$('#DIV_detailImg').css('width', '890px');
+			$('#detailImg').css('width', '100%;');
+			$('#detailDesc').css('text-align', 'center').css('float', '').css('margin', '0 auto');
+		}
+		else {
+			$('#DIV_detailImg').css('width', '450px');
+			$('#detailImg').css('width', '100%;');
+			$('#detailDesc').css('text-align', 'left').css('float', 'left').css('margin', '');
+		}
+		
 		$('#detailView').show('slow');
 		$('#portfolio').hide();
 		$('#detailConnect').hide();
 		if (copyright == true) {
-			$('#copyright').show();
+			if (imgName == 'BACBanner' || imgName == 'BACPoster2')
+				$('#copyright').html('<br/>&copy; Boston Architectural College').show();
+			else
+				$('#copyright').html('<br/>&copy; nestwork').show();
 		}
 		else
 			$('#copyright').hide();		
@@ -133,7 +147,7 @@
       </div>
       
       <div id="detailView" style="display:none; padding-top:40px;">
-	      <div style="float: left; width:450px;margin-right:40px;padding-bottom:20px;"><img id="detailImg" src="" alt="Crisp" /><span id="copyright" class="kadLtGrey kadSubTitle" style="display:none;float:left; margin-left:10px;"><br/>&copy; nestwork</span></div>
+	      <div id="DIV_detailImg" style="float: left; width:450px;margin-right:40px;padding-bottom:20px;"><img id="detailImg" src="" alt="Crisp" /><span id="copyright" class="kadLtGrey kadSubTitle" style="display:none;float:left; margin-left:10px;"><br/>&copy; nestwork</span></div>
 	      <div id="detailDesc" style="float: left; text-align:left; width:330px;">
 		      <div id="detailTitle" class="kadTeal kadTitle"></div>
 		      <div id="detailInfo" class="kadGrey"></div>
@@ -146,12 +160,16 @@
       <div id="portfolio">
       		<ul class="nav nav-pills">
 				<li><a class="filter kadGrey" data-filter="all">All</a></li>
+				<li><a class="filter kadGrey" data-filter="category_4">Print</a></li>
 				<li><a class="filter kadGrey" data-filter="category_1">Icons</a></li>
 				<li><a class="filter kadGrey" data-filter="category_2">Screen prints</a></li>
 				<li><a class="filter kadGrey" data-filter="category_3">Logos</a></li>
 			</ul>
 			
 			<ul id="Grid">
+				<li class="mix category_4" data-cat="4"><a onclick="showDetail('BACPoster2', 'Design Forum Poster', true);"><img src="img/BACPoster2.png"  alt="BAC Poster"></a></li>
+				<li class="mix category_4" data-cat="4"><a onclick="showDetail('BACBanner', 'Boston Architectural College Banner', true);"><img src="img/BACBanner.png"  alt="BAC Banner"></a></li>
+				<li class="mix category_4" data-cat="4"><a onclick="showDetail('WeddingInv', 'Wedding Invitation', false);"><img src="img/WeddingInv.png"  alt="Wedding Invitation"></a></li>
 				<li class="mix category_3" data-cat="3"><a onclick="showDetail('RobotNews', 'Robot News', false);"><img src="img/RobotNews.png"  alt="Robot News"></a></li>
 				<li class="mix category_1" data-cat="1"><a onclick="showDetail('r_icons', 'Resume icons', false);"><img src="img/r_icons.png" style="margin-top:-7px;" alt="r_icons"></a></li>
 				<li class="mix category_2" data-cat="2"><a onclick="showDetail('Crisp', 'Crisp', false);"><img src="img/Crisp.png" alt="Crisp"></a></li>
@@ -171,6 +189,9 @@
       </div>
   </div>
   	<div style="display:none;">
+  		<span id="detailInfo_BACPoster2"><br/>Poster to advertise a design forum for students at the Boston Architectural College.</span>
+  		<span id="detailInfo_BACBanner"><br/>Large scale banner to showcase new projects for students at the Boston Architectural College.</span>
+  		<span id="detailInfo_WeddingInv"><br/>Charming, vintage-inspired wedding invitation created for a summer wedding in the country.</span>
   		<span id="detailInfo_RobotNews"><br/>Logo design for an online robotics forum.</span>
 	  	<span id="detailInfo_r_icons"><br/>I created these icons to add a visual element to my resume, they represent experience, education, and skills.</span>
 	  	<span id="detailInfo_Crisp">An original screen print<br/><br/>This print is my favorite, a perfect contrast of warm and cool colors layered on top of each other.</span>
